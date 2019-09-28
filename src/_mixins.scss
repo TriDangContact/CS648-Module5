@@ -1,0 +1,23 @@
+@mixin break($args) {
+  // @if $args == 959px {
+    @media screen and (max-width: $args) {
+      @content;
+    }
+}
+
+$socialMediaList: "one", "two", "three", "four";
+
+@mixin socialMediaIcon($image: $image-social-media-placeholder) {
+  @for $i from 0 through 3 {
+    $item: nth($socialMediaList, $i + 1);
+    div.#{$item} {
+      background: url($image) #{(0 - (38 * $i))}px 0;
+    }
+  }
+}
+
+@mixin setNav($display: inline, $fontsize: 0.8em, $marginright: 10px) {
+  display: $display;
+  font-size: $fontsize;
+  margin-right:$marginright;
+}
