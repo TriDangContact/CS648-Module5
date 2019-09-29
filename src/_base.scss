@@ -3,11 +3,11 @@ body {
   font-size:1em;
   line-height:2em;
   background:url($image-bg) $color-white1 repeat-x;
-  margin:0;
+  @include setMargin();
 }
 
 main {
-  width:940px;
+  @include setDimensions(940px, "null");
   margin:0 auto;
   padding:0 10px;
   @include break($size-media-large) {
@@ -22,10 +22,10 @@ main {
 }
 
 header {
-  width:inherit;
-  clear:both;
+  @include setDimensions(inherit, "null");
+  @include setFloat("null", both);
   text-align:center;
-  padding-top:40px;
+  @include setPadding(40px, "null", "null", "null");
 
   img {
     max-width:100%;

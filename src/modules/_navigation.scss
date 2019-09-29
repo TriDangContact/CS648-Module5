@@ -1,13 +1,11 @@
 figure {
-  width:400px;
-  height:190px;
+  @include setDimensions(400px, 190px);
   background:url($image-logo) no-repeat 0 50px;
-  float:left;
-  display:block;
-  margin:0;
+  display: block;
+  @include setFloat(left, "null");
+  @include setMargin();
   @include break($size-media-large) {
-    width:inherit;
-    height:140px;
+    @include setDimensions(inherit, 140px);
     float:none;
     background-position:center;
   }
@@ -17,18 +15,19 @@ figure {
   }
 }
 nav {
-  width:540px;
-  height:190px;
-  float:left;
+  @include setDimensions(540px, 190px);
+  @include setFloat(left,"null");
   text-align:right;
   ul {
     list-style-type:none;
-    margin-top:95px;
+    @include setMargin(95px, "null", "null", "null");
     @include break($size-media-large) {
       margin-top:0;
     }
     li {
-      @include setNav(inline, 0.8em, 10px);
+      display: inline;
+      font-size: 0.8em;
+      margin-right: 10px;
       @include break($size-media-large) {
         font-size:1em;
         margin:0 10px;
@@ -49,8 +48,7 @@ nav {
   }
 
   @include break($size-media-large) {
-    width:inherit;
-    height:50px;
+    @include setDimensions(inherit, 50px);
     float:none;
     text-align:center;
   }
@@ -60,23 +58,23 @@ nav {
 }
 
 .greybar {
-  width:100%;
-  height:90px;
+  @include setDimensions(100%, 90px);
   background:$color-white2;
   clear:both;
-  padding-top:30px;
+  @include setPadding(30px, "null", "null", "null");
   @include break($size-media-small) {
     display:none;
   }
 }
 
 footer {
-  width:100%;
-  height:120px;
+  @include setDimensions(100%, 120px);
+  @include setFloat("null", "null");
+  @include setPadding(50px, "null", "null", "null");
   background:#30353D;
   text-align:center;
   color:#FFF;
-  padding-top:50px;
+
   @include break($size-media-small) {
     text-align:center;
   }
@@ -96,8 +94,7 @@ footer {
   }
   a {
     display:block;
-    width:36px;
-    height:36px;
+    @include setDimensions(36px, 36px);
     text-indent:-9999px;
   }
   @include socialMediaIcon($image-social-media);
